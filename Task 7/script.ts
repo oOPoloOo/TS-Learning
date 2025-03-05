@@ -1,3 +1,8 @@
+// Tai kaip ta ENDPOINT panaudot?
+// import data from `./${ENDPOINT}`; 
+
+// import data from './NBA.json'; 
+
 /* ------------------------------ TASK 7 -----------------------------------
 Parašykite TS kodą, vartotojui atėjus į tinklapį kreipsis į NBA.json failą ir iš jo atvaizduos visas NBA komandas ir jų žaidėjus. 
 Kiekviena komanda turės savo atvaizdavimo "kortelę", kurioje bus 
@@ -6,4 +11,5 @@ nurodomas komandos pavadinimas ir papildomose "mini kortelėse" išvardinti žai
 Pastaba: Informacija apie komandas bei žaidėjus turi turėti bent minimalų stilių;
 -------------------------------------------------------------------------- */
 
-const ENDPOINT = 'NBA.json';
+// const ENDPOINT = 'NBA.json';
+
