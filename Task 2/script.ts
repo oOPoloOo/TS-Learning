@@ -51,4 +51,4 @@ three = {
 //   lytis: 'sraigtasparnis' // error
 // };
 
-console.log(`three ${three.vardas} ${three.pavarde} ${three.lytis}`);
+console.log(`three: ${three.vardas} ${three.pavarde} ${three.lytis}`);
