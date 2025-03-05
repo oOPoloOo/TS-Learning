@@ -13,17 +13,37 @@ type TipasNaudoti = {
   kilometrazas: number
 };
 
-const dviratis = {
+type TipasDviratis = {
+  marke?: string,
+  modelis?: string,
+  metai: number,
+  spalva: string,
+  kilometrazas?: number  
+};
+
+type TipasMasina = {
+  marke: string,
+  modelis: string,
+  metai: number,
+  spalva: string,
+  kilometrazas?: number  
+  surudyjesDugnas?: boolean  
+};
+
+type TipasNaudotiDviratis = TipasNaudoti | TipasDviratis;
+type TipasNaudotiMasina = TipasNaudoti | TipasMasina;
+
+const dviratis: TipasDviratis = {
   metai: 1999,
   spalva: ''
 };
-const naujaMasina = {
+const naujaMasina: TipasNaudotiMasina = {
   marke: '',
   modelis: '',
   metai: 2025,
   spalva: ''
 };
-const senaMasina = {
+const senaMasina: TipasNaudotiMasina = {
   marke: '',
   modelis: '',
   metai: 2025,
