@@ -1,23 +1,35 @@
 "use strict";
-let one = 654;
-let two = true;
-let three = true;
-let four = true;
-four = '123';
-let five = [1, 2, 3];
-five = [21, 22, 23, 24];
-let six = [1, 2, 3, 4];
-six = ['a', 'b', 'c', 'd'];
-let seven = [1, 2, 3, 4];
-seven = ['a', 'b', 'c', 'd'];
-seven = ['a', 2, 3, 'd'];
-let eight = ['hi', 1];
-eight = ['bye', 2];
-console.log(one);
-console.log(two);
-console.log(three);
-console.log(four);
-console.log(five);
-console.log(six);
-console.log(seven);
-console.log(eight);
+var moves;
+(function (moves) {
+    moves["Rock"] = "rock";
+    moves["Paper"] = "paper";
+    moves["Scissors"] = "scissors";
+})(moves || (moves = {}));
+var results;
+(function (results) {
+    results["Winner1"] = "Player 1 won!";
+    results["Winner2"] = "Player 2 won!";
+    results["Draw"] = "Draw!";
+})(results || (results = {}));
+const RockPapperScissors = (player1, player2) => {
+    if (player1 === player2)
+        return results.Draw;
+    switch (player1.toString()) {
+        case moves.Rock:
+            if (player2.toString() === moves.Paper)
+                return results.Winner2;
+            break;
+        case moves.Paper:
+            if (player2.toString() === moves.Scissors)
+                return results.Winner2;
+            break;
+        case moves.Scissors:
+            if (player2.toString() === moves.Rock)
+                return results.Winner2;
+            break;
+        default:
+            return results.Winner1;
+    }
+    return results.Winner1;
+};
+console.log(RockPapperScissors('scissors', 'scissors'));
