@@ -33,31 +33,30 @@ type ColorArray = [ColorNumber, ColorNumber, ColorNumber];
 // Gal taip geriau butu, bet konstruktoriai pagavo.
 // type MixedArrayType = ColorNumber | number[];
 
-class Potion {
-  color?: number[];
-  colorChecked?: ColorArray;
+class Potion 
+{
+  color: ColorArray;  
   volume: number;
 
-  constructor( volume: number, color?: number[], colorChecked?: ColorArray)
-  {    
-    if(colorChecked) this.colorChecked = colorChecked;  
-    if(color) this.color = color;    
+  constructor(color: ColorArray, volume: number)
+  {       
+    this.color = color;    
     this.volume = volume;
   } 
  
-  mix(ingridients: Potion): Potion {
+  mix(ingridients: Potion): Potion 
+  {
     const newVolume = this.volume + ingridients.volume;
-
     const newColor = this.color.map((c, i) =>
-      Math.round((c * this.volume + ingridients.color[i] * ingridients.volume) / newVolume)
-    );
+      Math.ceil((c * this.volume + ingridients.color[i] * ingridients.volume) / newVolume)
+    ) as ColorArray;
     
     return new Potion(newColor, newVolume);
   }
- 
 }
 
-// Example usage
 const felixFelicis = new Potion([255, 255, 255], 7);
 const polyjuice = new Potion([51, 102, 51], 12);
 const newPotion = felixFelicis.mix(polyjuice);
+
+console.log(`newPotion: ${newPotion.color} ${newPotion.volume}`);

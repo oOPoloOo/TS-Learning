@@ -1,23 +1,16 @@
 "use strict";
-let one = 654;
-let two = true;
-let three = true;
-let four = true;
-four = '123';
-let five = [1, 2, 3];
-five = [21, 22, 23, 24];
-let six = [1, 2, 3, 4];
-six = ['a', 'b', 'c', 'd'];
-let seven = [1, 2, 3, 4];
-seven = ['a', 'b', 'c', 'd'];
-seven = ['a', 2, 3, 'd'];
-let eight = ['hi', 1];
-eight = ['bye', 2];
-console.log(one);
-console.log(two);
-console.log(three);
-console.log(four);
-console.log(five);
-console.log(six);
-console.log(seven);
-console.log(eight);
+class Potion {
+    constructor(color, volume) {
+        this.color = color;
+        this.volume = volume;
+    }
+    mix(ingridients) {
+        const newVolume = this.volume + ingridients.volume;
+        const newColor = this.color.map((c, i) => Math.ceil((c * this.volume + ingridients.color[i] * ingridients.volume) / newVolume));
+        return new Potion(newColor, newVolume);
+    }
+}
+const felixFelicis = new Potion([255, 255, 255], 7);
+const polyjuice = new Potion([51, 102, 51], 12);
+const newPotion = felixFelicis.mix(polyjuice);
+console.log(`newPotion: ${newPotion.color} ${newPotion.volume}`);
