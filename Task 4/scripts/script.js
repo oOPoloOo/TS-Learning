@@ -1,23 +1,24 @@
 "use strict";
-let one = 654;
-let two = true;
-let three = true;
-let four = true;
-four = '123';
-let five = [1, 2, 3];
-five = [21, 22, 23, 24];
-let six = [1, 2, 3, 4];
-six = ['a', 'b', 'c', 'd'];
-let seven = [1, 2, 3, 4];
-seven = ['a', 'b', 'c', 'd'];
-seven = ['a', 2, 3, 'd'];
-let eight = ['hi', 1];
-eight = ['bye', 2];
-console.log(one);
-console.log(two);
-console.log(three);
-console.log(four);
-console.log(five);
-console.log(six);
-console.log(seven);
-console.log(eight);
+const WordToFakeBinary = (word) => {
+    const removableSeparators = /[\s,;|:.?]+/g;
+    let clearString;
+    let charArray;
+    let counter = 1;
+    let conwertedWord = "";
+    clearString = word.replace(removableSeparators, '');
+    charArray = clearString.split('');
+    charArray.forEach(() => {
+        if (counter === 1) {
+            conwertedWord += `${counter}`;
+            counter--;
+        }
+        else if (counter === 0) {
+            conwertedWord += `${counter}`;
+            counter++;
+        }
+    });
+    return parseInt(conwertedWord);
+};
+console.log(WordToFakeBinary("Labas"));
+console.log(WordToFakeBinary("Labas Krabas"));
+console.log(WordToFakeBinary("Labas Krabas. ?"));
